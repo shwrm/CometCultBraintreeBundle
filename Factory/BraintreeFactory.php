@@ -30,17 +30,18 @@ class BraintreeFactory
      * Factory method for creating and getting Braintree services
      *
      * @param string $serviceName braintree service name
-     * @param array $attributes   attribures for braintree service creation
+     * @param array  $attributes  attribures for braintree service creation
      *
      * @return mixed
+     * @throws InvalidServiceException
      */
-    public function get($serviceName, array $attributes = array())
+    public function get($serviceName, array $attributes = [])
     {
         $className = 'Braintree_' . ucfirst($serviceName);
-        if(class_exists($className) && method_exists($className, 'factory')) {
+        if (class_exists($className) && method_exists($className, 'factory')) {
             return $className::factory($attributes);
-        } elseif (class_exists($className) {
-+            return new $className;
+        } elseif (class_exists($className)) {
+            return new $className;
         } else {
             throw new InvalidServiceException('Invalid service ' . $serviceName);
         }
