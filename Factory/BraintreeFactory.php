@@ -39,6 +39,8 @@ class BraintreeFactory
         $className = 'Braintree_' . ucfirst($serviceName);
         if(class_exists($className) && method_exists($className, 'factory')) {
             return $className::factory($attributes);
+        } elseif (class_exists($className) {
++            return new $className;
         } else {
             throw new InvalidServiceException('Invalid service ' . $serviceName);
         }
