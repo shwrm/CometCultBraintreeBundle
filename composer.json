@@ -1,5 +1,5 @@
 {
-    "name": "cometcult/braintree-bundle",
+    "name": "shwrm/braintree-bundle",
     "type": "symfony-bundle",
     "description": "Symfony 2 Bundle for Braintree's PHP client library",
     "keywords": ["braintree", "bundle", "payment", "credit", "card"],
